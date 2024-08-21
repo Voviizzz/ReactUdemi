@@ -1,52 +1,48 @@
-let a: number = 10;
-let b: string = "20";
+var a = 10;
+var b = "20";
 // let c = true;
 // БУдет ошибка
 // let d = a + c
-
 //Тут только массив строк, другие типы не поддерживаются
-let d: string[] = ["1", "2", "3"];
+var d = ["1", "2", "3"];
 //крайне не рекомендуется использовать в продашнке
-let e: any = 3
-e = 'test'
-
+var e = 3;
+e = 'test';
 //принимает значение а в виде строки и вернет строку
 //данная функция может вернуть либо строку, либо числовое значение
-function test(a: string): number | string {
-   return '';
+function test(a) {
+    return '';
 }
-
 //Стрелочная функция
-const test2 = (a: string): string => {
-   return '';
+var test2 = function (a) {
+    return '';
 };
-
 //Типизация MAP
-d = d.map((g: string) => g.toLowerCase())
-
-
+d = d.map(function (g) { return g.toLowerCase(); });
 //Типизация функции  с необязательно переменной
-function countCoords(coord: { lat: number, llong?: number | undefined }) {
-
+function countCoords(coord) {
 }
-
 //Обеспечиваем безопасность наших типов
-function printIt(id: number | string) {
-   if (typeof id === 'number') {
-      console.log(id.toString());
-   } else if (typeof id === 'string') {
-      console.log(id.toUpperCase());
-   }
+function printIt(id) {
+    if (typeof id === 'number') {
+        console.log(id.toString());
+    }
+    else if (typeof id === 'string') {
+        console.log(id.toUpperCase());
+    }
 }
-
 //Типизация union типа
-function getSum(a: number | number[]) {
-   if (Array.isArray(a)) {
-      return a.reduce((a, b) => a + b, 0)
-   }
-   return a
+function getSum(a) {
+    if (Array.isArray(a)) {
+        return a.reduce(function (a, b) { return a + b; }, 0);
+    }
+    return a;
 }
-
 //Типизация undefined и null
-const x: undefined = undefined
-const l: null = null
+var x = undefined;
+var l = null;
+//Типизация void
+function test3() {
+    var a;
+    return a;
+}
